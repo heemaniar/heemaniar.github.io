@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heema Maniar — Analytics Engineer & Strategic Data Analyst</title>
+<meta name="description" content="Analytics engineer and strategic data analyst with 10+ years partnering with Finance, Marketing, Sales, CS, and Ops to build KPI frameworks, self-service BI, and AI-powered analytics that drive business decisions.">
+<meta property="og:title" content="Heema Maniar — Analytics Engineer & Strategic Data Analyst">
+<meta property="og:description" content="Analytics Engineer · Strategic Data Analyst · KPI Strategy & Self-Service BI · AI-Augmented Analytics · dbt · Looker · BigQuery">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── VARIABLES ── */
+:root {
+  --dp:    #1e1b4b;
+  --dark:  #26215C;
+  --mid:   #3C3489;
+  --purp:  #534AB7;
+  --lav:   #EEEDFE;
+  --lavm:  #CECBF6;
+  --teal:  #1D9E75;
+  --tealL: #9FE1CB;
+  --teal2: #5DCAA5;
+  --coral: #D85A30;
+  --corL:  #F0997B;
+  --white: #ffffff;
+  --dm:    rgba(255,255,255,0.88);
+  --dm2:   rgba(255,255,255,0.50);
+  --dm3:   rgba(255,255,255,0.28);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Inter', sans-serif; background: var(--dp); color: var(--dm); line-height: 1.65; overflow-x: hidden; }
+h1,h2,h3,h4,h5 { font-family: 'DM Sans', sans-serif; }
+a { text-decoration: none; }
+img { max-width: 100%; }
+
+/* ── NAV ── */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px; padding: 0 6%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .3s, border-color .3s;
+  border-bottom: 1px solid transparent;
+}
+#nav.scrolled {
+  background: rgba(30,27,75,.92);
+  backdrop-filter: blur(14px);
+  border-color: rgba(255,255,255,.08);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--white); font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500; letter-spacing: -.2px;
+}
+.nav-mark { width: 30px; height: 26px; }
+.nav-links {
+  display: flex; align-items: center; gap: 28px; list-style: none;
+}
+.nav-links a {
+  font-size: 13px; color: var(--dm2); transition: color .2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-btn {
+  background: var(--coral); color: var(--white) !important;
+  padding: 7px 18px; border-radius: 7px;
+  font-weight: 500; font-size: 13px !important;
+  transition: opacity .2s !important;
+}
+.nav-btn:hover { opacity: .82 !important; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  padding: 120px 6% 80px;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  background: linear-gradient(140deg, #13113a 0%, #2d2a72 55%, #3C3489 100%);
+}
+.hero-deco {
+  position: absolute; right: -80px; top: -80px;
+  width: 520px; opacity: .055; pointer-events: none;
+}
+.hero-inner { max-width: 780px; position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(29,158,117,.12);
+  border: 1px solid rgba(29,158,117,.35);
+  color: var(--tealL); font-size: 12px; font-weight: 500;
+  padding: 6px 15px; border-radius: 20px; margin-bottom: 28px;
+  letter-spacing: .3px;
+}
+.badge-dot {
+  width: 7px; height: 7px; background: var(--teal); border-radius: 50%;
+  animation: blink 2.2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:.4; transform:scale(.8); }
+}
+.hero-name {
+  font-size: clamp(48px,8.5vw,100px);
+  font-weight: 700; letter-spacing: -3px; line-height: .95;
+  color: var(--white); margin-bottom: 6px;
+}
+.hero-name .dot { color: var(--coral); }
+.hero-title {
+  font-size: clamp(16px,2.2vw,22px); font-weight: 400;
+  color: var(--lavm); margin-bottom: 22px; letter-spacing: .1px;
+}
+.hero-bio {
+  font-size: 16px; color: var(--dm2); max-width: 500px;
+  line-height: 1.75; margin-bottom: 38px;
+}
+.hero-btns {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  border: none; transition: all .2s;
+}
+.btn-c  { background: var(--coral); color: var(--white); }
+.btn-c:hover { background: #be4f27; }
+.btn-t  { background: rgba(29,158,117,.18); border: 1px solid rgba(29,158,117,.4); color: var(--tealL); }
+.btn-t:hover { background: rgba(29,158,117,.28); }
+.btn-g  { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); color: var(--dm); }
+.btn-g:hover { background: rgba(255,255,255,.12); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 20px; }
+.hero-meta-item {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; color: var(--dm3);
+}
+
+/* ── SHARED SECTION ── */
+section { padding: 90px 6%; }
+.sec-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 1.6px;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.sec-title {
+  font-size: clamp(28px,4vw,46px); font-weight: 700;
+  letter-spacing: -.8px; line-height: 1.15; margin-bottom: 16px;
+}
+.sec-sub {
+  font-size: 16px; line-height: 1.75; max-width: 580px;
+  margin-bottom: 52px;
+}
+
+/* ── ABOUT ── */
+#about { background: var(--lav); color: var(--dark); }
+#about .sec-label { color: var(--purp); }
+#about .sec-title { color: var(--dp); }
+#about .sec-sub    { color: var(--purp); }
+.about-grid {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start;
+}
+.about-bio { font-size: 15.5px; line-height: 1.85; color: #2a2560; }
+.about-bio p + p { margin-top: 18px; }
+.about-bio strong { color: var(--dp); font-weight: 600; }
+.skills-col {}
+.skill-group { margin-bottom: 22px; }
+.skill-group-lbl {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--purp); margin-bottom: 9px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag {
+  font-size: 12px; font-weight: 500;
+  padding: 4px 12px; border-radius: 20px;
+}
+.tag-t { background: var(--teal);  color: #fff; }
+.tag-p { background: var(--purp);  color: #fff; }
+.tag-o { background: transparent; border: 1px solid var(--lavm); color: var(--purp); }
+
+/* ── PROJECTS ── */
+#projects { background: var(--dark); }
+#projects .sec-label { color: var(--tealL); }
+#projects .sec-title { color: var(--white); }
+#projects .sec-sub   { color: var(--dm2); }
+
+/* ── CARDS GRID ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px,1fr));
+  gap: 20px;
+}
+.card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px; overflow: hidden;
+  transition: transform .25s, border-color .25s;
+  display: flex; flex-direction: column;
+}
+.card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,.18); }
+.card-stripe { height: 3px; }
+.card-stripe.t { background: var(--teal); }
+.card-stripe.c { background: var(--coral); }
+.card-body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+.card-type {
+  font-size: 10.5px; font-weight: 600; letter-spacing: .9px;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.card-type.t { color: var(--tealL); }
+.card-type.c { color: var(--corL); }
+.card-title {
+  font-size: 17px; font-weight: 600; color: var(--white);
+  line-height: 1.3; letter-spacing: -.2px; margin-bottom: 10px;
+}
+.card-desc {
+  font-size: 13px; color: var(--dm2); line-height: 1.7;
+  margin-bottom: 16px; flex: 1;
+}
+.card-stat {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 500;
+  padding: 8px 12px; border-radius: 7px; margin-bottom: 16px;
+}
+.card-stat.t {
+  background: rgba(29,158,117,.1); border: 1px solid rgba(29,158,117,.2);
+  color: var(--tealL);
+}
+.card-stat.c {
+  background: rgba(216,90,48,.1); border: 1px solid rgba(216,90,48,.2);
+  color: var(--corL);
+}
+.card-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.tool {
+  font-size: 11px; padding: 3px 9px; border-radius: 4px;
+  background: rgba(255,255,255,.08); color: var(--dm2);
+}
+.card-links { display: flex; gap: 14px; margin-top: auto; }
+.clink {
+  font-size: 12px; font-weight: 500; display: flex; align-items: center;
+  gap: 4px; transition: color .2s;
+}
+.clink.t { color: var(--tealL); }
+.clink.c { color: var(--corL); }
+.clink.g { color: var(--dm2); }
+.clink:hover { color: var(--white); }
+
+/* ── APPS ── */
+#apps { background: var(--dp); }
+#apps .sec-label { color: var(--corL); }
+#apps .sec-title { color: var(--white); }
+#apps .sec-sub   { color: var(--dm2); }
+.placeholder-card {
+  background: rgba(255,255,255,.03);
+  border: 1px dashed rgba(255,255,255,.12);
+  border-radius: 14px; padding: 36px 28px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; gap: 12px; min-height: 220px;
+}
+.ph-icon {
+  width: 42px; height: 42px;
+  background: rgba(216,90,48,.1); border: 1px solid rgba(216,90,48,.2);
+  border-radius: 9px; display: flex; align-items: center; justify-content: center;
+}
+.ph-badge {
+  font-size: 11px; padding: 3px 11px; border-radius: 20px; font-weight: 500;
+  background: rgba(216,90,48,.1); border: 1px solid rgba(216,90,48,.25);
+  color: var(--corL);
+}
+.ph-title { font-size: 14px; font-weight: 600; color: var(--white); }
+.ph-desc  { font-size: 12px; color: var(--dm2); line-height: 1.6; max-width: 220px; }
+
+/* ── CERTIFICATIONS ── */
+#certifications { background: var(--lav); }
+#certifications .sec-label { color: var(--purp); }
+#certifications .sec-title { color: var(--dp); }
+#certifications .sec-sub   { color: var(--purp); }
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 14px;
+}
+.cert-card {
+  background: #fff; border: 1px solid var(--lavm);
+  border-radius: 10px; padding: 18px 20px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: transform .2s;
+}
+.cert-card:hover { transform: translateY(-2px); }
+.cdot {
+  width: 10px; height: 10px; border-radius: 50%;
+  margin-top: 4px; flex-shrink: 0;
+}
+.cdot.e  { background: var(--teal); }
+.cdot.ip { background: var(--coral); }
+.cdot.pl { background: var(--lavm); }
+.cert-name { font-size: 13px; font-weight: 600; color: var(--dp); line-height: 1.3; margin-bottom: 3px; }
+.cert-org  { font-size: 11px; color: var(--purp); margin-bottom: 7px; }
+.cert-badge {
+  font-size: 10px; font-weight: 600; padding: 2px 9px;
+  border-radius: 20px; display: inline-block;
+}
+.cert-badge.e  { background: rgba(29,158,117,.1); color: #0d6e4f; }
+.cert-badge.ip { background: rgba(216,90,48,.1);  color: var(--coral); }
+.cert-badge.pl { background: var(--lav); color: var(--purp); }
+
+/* ── CONTACT / FOOTER ── */
+#contact {
+  background: #0d0b28;
+  text-align: center;
+  padding: 96px 6% 64px;
+}
+.contact-eye {
+  font-size: 11px; letter-spacing: 1.6px;
+  text-transform: uppercase; color: var(--dm3); margin-bottom: 18px;
+}
+.contact-h {
+  font-size: clamp(34px,5.5vw,64px);
+  font-weight: 700; letter-spacing: -1.5px;
+  color: var(--white); margin-bottom: 14px;
+}
+.contact-h .coral { color: var(--coral); }
+.contact-sub {
+  font-size: 16px; color: var(--dm2); margin-bottom: 40px;
+}
+.contact-btns {
+  display: flex; gap: 12px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 52px;
+}
+.contact-divider {
+  width: 1px; height: 36px; background: rgba(255,255,255,.08);
+  margin: 0 auto 40px;
+}
+.socials {
+  display: flex; gap: 14px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 48px;
+}
+.soc-link {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--dm2);
+  padding: 8px 18px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.1);
+  transition: all .2s;
+}
+.soc-link:hover {
+  color: var(--white); background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.2);
+}
+.footer-copy {
+  font-size: 12px; color: rgba(255,255,255,.2);
+  padding-top: 32px; border-top: 1px solid rgba(255,255,255,.05);
+}
+
+/* ── SCROLL ANIMATION ── */
+.fu { opacity:0; transform:translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+.fu.in { opacity:1; transform:translateY(0); }
+.fd1 { transition-delay: .10s; }
+.fd2 { transition-delay: .20s; }
+.fd3 { transition-delay: .30s; }
+.fd4 { transition-delay: .40s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 44px; }
+}
+@media (max-width:680px) {
+  #nav { padding: 0 4%; }
+  .nav-links { display: none; }
+  section { padding: 64px 4%; }
+  #hero { padding: 100px 4% 60px; }
+  .hero-name { letter-spacing: -2px; }
+  .contact-btns { flex-direction: column; align-items: center; }
+  .hero-deco { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ────────────────── NAV ────────────────── -->
+<nav id="nav">
+  <a href="#hero" class="nav-brand">
+    <svg class="nav-mark" viewBox="0 0 64 54" fill="none">
+      <polyline points="8,44 24,28 40,34 58,10" stroke="rgba(255,255,255,.28)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="8"  cy="44" r="4.5" fill="#5DCAA5"/>
+      <circle cx="24" cy="28" r="5.5" fill="#5DCAA5"/>
+      <circle cx="40" cy="34" r="4"   fill="#AFA9EC"/>
+      <circle cx="58" cy="10" r="6"   fill="#F0997B"/>
+      <circle cx="58" cy="10" r="10" fill="none" stroke="#F0997B" stroke-width="1" stroke-dasharray="2,3" opacity=".5"/>
+    </svg>
+    Heema Maniar
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#apps">Apps</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact" class="nav-btn">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- ────────────────── HERO ────────────────── -->
+<section id="hero">
+
+  <!-- decorative bg mark -->
+  <svg class="hero-deco" viewBox="0 0 500 420" fill="none">
+    <polyline points="40,350 150,230 260,285 390,90" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="40"  cy="350" r="30" fill="white"/>
+    <circle cx="150" cy="230" r="38" fill="white"/>
+    <circle cx="260" cy="285" r="26" fill="white"/>
+    <circle cx="390" cy="90"  r="44" fill="white"/>
+    <circle cx="390" cy="90"  r="70" fill="none" stroke="white" stroke-width="2" stroke-dasharray="6,9"/>
+  </svg>
+
+  <div class="hero-inner">
+
+    <div class="hero-badge fu">
+      <div class="badge-dot"></div>
+      Open to new opportunities
+    </div>
+
+    <h1 class="hero-name fu fd1">Heema Maniar<span class="dot">.</span></h1>
+    <p class="hero-title fu fd2">Analytics Engineer &nbsp;·&nbsp; Strategic Data Analyst &nbsp;·&nbsp; KPI Strategy &amp; AI-Augmented BI</p>
+
+    <p class="hero-bio fu fd2">
+      10+ years partnering with Finance, Marketing, Sales, Customer Success, and Operations
+      to build the KPI frameworks, self-service dashboards, and data pipelines that give
+      every team one source of truth — and the confidence to act on it.
+    </p>
+
+    <div class="hero-btns fu fd3">
+      <a href="#projects" class="btn btn-c">View My Work</a>
+      <a href="https://www.linkedin.com/in/heema-maniar" target="_blank" rel="noopener" class="btn btn-t">LinkedIn →</a>
+      <a href="https://github.com/heemaniar" target="_blank" rel="noopener" class="btn btn-g">GitHub</a>
+    </div>
+
+    <div class="hero-meta fu fd3">
+      <span class="hero-meta-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        San Francisco Bay Area, CA
+      </span>
+      <span class="hero-meta-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        maniarheema@gmail.com
+      </span>
+      <span class="hero-meta-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        10+ Years Experience
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ────────────────── ABOUT ────────────────── -->
+<section id="about">
+  <p class="sec-label fu">About</p>
+  <h2 class="sec-title fu">Data is my craft.<br>Decisions are my output.</h2>
+
+  <div class="about-grid">
+    <div class="about-bio fu">
+      <p>
+        Analytics engineer and strategic data analyst with 10+ years turning complex data into business
+        strategy across SaaS, fintech, and tech. I work across <strong>data engineering,
+        analytics, and cross-functional leadership</strong> — building the pipelines, KPI frameworks, and
+        self-service tools that let every team answer their own questions from one trusted source of truth.
+      </p>
+      <p>
+        I've partnered directly with <strong>Finance, Marketing, Sales, Customer Success, Operations,
+        Product, and HR</strong> to define metric ownership, standardize KPI calculations, and deliver
+        go-to dashboards that leadership actually uses to make decisions. At a SaaS company, I automated
+        reporting pipelines that cut manual effort by about 40% and used LLMs to surface support ticket
+        patterns at scale. At a global fintech platform, I built an automated dashboard system that
+        lifted team productivity by roughly 45% and designed predictive fraud detection models.
+      </p>
+      <p>
+        I use <strong>AI and prompt engineering</strong> to speed up every part of the analytics workflow,
+        from data exploration to narrative generation. Currently re-engaging after a
+        career break, building across <strong>BI, dbt, and agentic analytics</strong>.
+      </p>
+    </div>
+
+    <div class="skills-col fu fd2">
+      <div class="skill-group">
+        <p class="skill-group-lbl">BI &amp; Visualization</p>
+        <div class="tags">
+          <span class="tag tag-t">Looker</span>
+          <span class="tag tag-t">Tableau</span>
+          <span class="tag tag-t">Looker Studio</span>
+          <span class="tag tag-t">Periscope</span>
+          <span class="tag tag-t">Salesforce</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-lbl">Data Engineering</p>
+        <div class="tags">
+          <span class="tag tag-p">dbt</span>
+          <span class="tag tag-p">Fivetran</span>
+          <span class="tag tag-p">Airflow</span>
+          <span class="tag tag-p">BigQuery</span>
+          <span class="tag tag-p">Snowflake</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-lbl">Programming</p>
+        <div class="tags">
+          <span class="tag tag-t">SQL</span>
+          <span class="tag tag-t">Python</span>
+          <span class="tag tag-t">LookML</span>
+          <span class="tag tag-o">R</span>
+          <span class="tag tag-o">GitHub</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-lbl">Cloud &amp; AI</p>
+        <div class="tags">
+          <span class="tag tag-p">GCP</span>
+          <span class="tag tag-p">Google ADK</span>
+          <span class="tag tag-p">Gemini</span>
+          <span class="tag tag-o">Claude API</span>
+          <span class="tag tag-o">LLMs / NLP</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-lbl">Strategy &amp; Collaboration</p>
+        <div class="tags">
+          <span class="tag tag-t">KPI Governance</span>
+          <span class="tag tag-t">Self-Service BI</span>
+          <span class="tag tag-t">Prompt Engineering</span>
+          <span class="tag tag-o">Stakeholder Management</span>
+          <span class="tag tag-o">Single Source of Truth</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────── PROJECTS ────────────────── -->
+<section id="projects">
+  <p class="sec-label fu">Featured Work</p>
+  <h2 class="sec-title fu">Dashboards &amp; Data Products</h2>
+  <p class="sec-sub fu">Hands-on analytics builds, from operational dashboards to end-to-end dbt projects. More work from past roles is being rebuilt as shareable portfolio pieces.</p>
+
+  <div class="cards-grid">
+
+    <!-- Card 2 -->
+    <div class="card fu fd1">
+      <div class="card-stripe t"></div>
+      <div class="card-body">
+        <p class="card-type t">Operations Analytics · dbt + ML/LLM Build</p>
+        <h3 class="card-title">Operations Productivity Intelligence</h3>
+        <p class="card-desc">Synthetic Salesforce-style case data for a financial-services ops team, modeled end to end (CSV → BigQuery → dbt → Data Studio). Mines ticket patterns with ML and Claude, stands up a knowledge base, and benchmarks a classic ML classifier against an LLM for triage. Every number is measured from the data, not asserted.</p>
+        <div class="card-stat t">↑ 24% lower handle time on KB-addressable tickets (26.0 → 19.7 min)</div>
+        <div class="card-tools">
+          <span class="tool">BigQuery</span><span class="tool">dbt</span>
+          <span class="tool">Data Studio</span><span class="tool">Python</span><span class="tool">Claude</span><span class="tool">scikit-learn</span>
+        </div>
+        <div class="card-links">
+          <a href="https://datastudio.google.com/u/0/reporting/f95afc62-8f89-40c9-a2af-a806fabe0005/page/0kyzF?s=g6Y--JQTi6E" target="_blank" rel="noopener" class="clink t">View Dashboard →</a>
+          <a href="https://github.com/heemaniar/ops-productivity-intelligence" target="_blank" rel="noopener" class="clink g">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 — Revenue Intelligence (Olist) -->
+    <div class="card fu fd3">
+      <div class="card-stripe c"></div>
+      <div class="card-body">
+        <p class="card-type c">Data &amp; Analytics · dbt Portfolio Build</p>
+        <h3 class="card-title">Revenue Intelligence (Olist)</h3>
+        <p class="card-desc">Raw Brazilian e-commerce data (100K orders, 9 CSVs) modeled through BigQuery and dbt — staging, intermediate, and marts, tested and documented — into a 5-page Looker Studio dashboard. Ships with a KPI dictionary, a leadership decision brief, and Claude-driven sentiment analysis over Portuguese reviews.</p>
+        <div class="card-stat c">⚙ In progress · end-to-end strategic analyst build</div>
+        <div class="card-tools">
+          <span class="tool">BigQuery</span><span class="tool">dbt</span>
+          <span class="tool">Looker Studio</span><span class="tool">Python</span><span class="tool">Claude API</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/heemaniar" target="_blank" rel="noopener" class="clink c">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ────────────────── APPS ────────────────── -->
+<section id="apps">
+  <p class="sec-label fu">AI-Powered Apps</p>
+  <h2 class="sec-title fu">AI-Powered Analytics Apps</h2>
+  <p class="sec-sub fu">Multi-agent AI systems built for the Google Cloud Rapid Agent Hackathon — live, deployed, and production-grade.</p>
+
+  <div class="cards-grid">
+
+    <!-- GoldenGate -->
+    <div class="card fu">
+      <div class="card-stripe c"></div>
+      <div class="card-body">
+        <p class="card-type c">Multi-Agent AI · Hackathon · Fivetran Track</p>
+        <h3 class="card-title">🌉 GoldenGate Retail AI</h3>
+        <p class="card-desc">AI co-pilot for Bay Area shopping mall general managers. Routes natural-language questions to three specialist agents (a Data Unifier on BigQuery + Fivetran MCP, a Tenant Diagnoser for lease risk and rent-to-sales ratios, and an Action Recommender running ARIMA_PLUS 30-day forecasts) over ~1.5M synthetic transactions across 13 malls. Every answer is traceable to the SQL behind it.</p>
+        <div class="card-stat c">↑ Google Cloud Rapid Agent Hackathon · June 2026</div>
+        <div class="card-tools">
+          <span class="tool">Google ADK</span><span class="tool">Gemini 3 Flash</span>
+          <span class="tool">BigQuery ML</span><span class="tool">Fivetran MCP</span>
+          <span class="tool">Streamlit</span><span class="tool">Cloud Run</span>
+        </div>
+        <div class="card-links">
+          <a href="https://goldengate-3f3swnt3qq-uc.a.run.app" target="_blank" rel="noopener" class="clink c">Live Demo →</a>
+          <a href="https://github.com/heemaniar/goldengate-retail-ai/blob/main/README.md" target="_blank" rel="noopener" class="clink g">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EvolvBI -->
+    <div class="card fu fd1">
+      <div class="card-stripe c"></div>
+      <div class="card-body">
+        <p class="card-type c">Self-Improving AI · Hackathon · Arize Phoenix Track</p>
+        <h3 class="card-title">🔬 EvolvBI</h3>
+        <p class="card-desc">Self-improving SQL analytics agent. Ask questions in plain English; every interaction is traced in Arize Phoenix and scored by three evals, including a grounding check that catches fabricated numbers. A one-click loop reads the failure patterns and rewrites the agent's own prompt, shown as a live red/green diff and saved to BigQuery so the gains persist across runs.</p>
+        <div class="card-stat c">↑ Google Cloud Rapid Agent Hackathon · June 2026</div>
+        <div class="card-tools">
+          <span class="tool">Google ADK</span><span class="tool">Gemini 3 Flash</span>
+          <span class="tool">Arize Phoenix</span><span class="tool">BigQuery ML</span>
+          <span class="tool">Streamlit</span><span class="tool">Cloud Run</span>
+        </div>
+        <div class="card-links">
+          <a href="https://evolvbi-3f3swnt3qq-uc.a.run.app" target="_blank" rel="noopener" class="clink c">Live Demo →</a>
+          <a href="https://github.com/heemaniar/evolvbi/blob/main/README.md" target="_blank" rel="noopener" class="clink g">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ────────────────── CERTIFICATIONS ────────────────── -->
+<section id="certifications">
+  <p class="sec-label fu">Learning</p>
+  <h2 class="sec-title fu">Certifications &amp; Education</h2>
+  <p class="sec-sub fu">Continuously upskilling at the frontier of data and AI.</p>
+
+  <div class="certs-grid">
+
+    <div class="cert-card fu">
+      <div class="cdot e"></div>
+      <div>
+        <p class="cert-name">Database &amp; Data Analytics</p>
+        <p class="cert-org">UCSC Silicon Valley Extension · 2018</p>
+        <span class="cert-badge e">Earned</span>
+      </div>
+    </div>
+
+    <div class="cert-card fu fd1">
+      <div class="cdot e"></div>
+      <div>
+        <p class="cert-name">Bachelor of Computer Engineering</p>
+        <p class="cert-org">University of Mumbai · 2012</p>
+        <span class="cert-badge e">Earned</span>
+      </div>
+    </div>
+
+    <div class="cert-card fu fd2">
+      <div class="cdot e"></div>
+      <div>
+        <p class="cert-name">dbt Fundamentals</p>
+        <p class="cert-org">dbt Learn</p>
+        <span class="cert-badge e">Completed</span>
+      </div>
+    </div>
+
+    <div class="cert-card fu">
+      <div class="cdot e"></div>
+      <div>
+        <p class="cert-name">Databricks Fundamentals</p>
+        <p class="cert-org">Databricks Academy</p>
+        <span class="cert-badge e">Completed</span>
+      </div>
+    </div>
+
+    <div class="cert-card fu fd1">
+      <div class="cdot e"></div>
+      <div>
+        <p class="cert-name">Introduction to Generative AI</p>
+        <p class="cert-org">Google Cloud Skills Boost</p>
+        <span class="cert-badge e">Completed</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ────────────────── CONTACT ────────────────── -->
+<section id="contact">
+  <p class="contact-eye fu">Let's work together</p>
+  <h2 class="contact-h fu">Get in <span class="coral">Touch</span><span class="coral">.</span></h2>
+  <p class="contact-sub fu">Open to Senior / Lead Analytics Engineer, Data Analyst, and Strategic Data Analyst roles where data drives decisions across the business.</p>
+
+  <div class="contact-btns fu fd1">
+    <a href="mailto:maniarheema@gmail.com" class="btn btn-c">Send an Email</a>
+    <a href="https://www.linkedin.com/in/heema-maniar" target="_blank" rel="noopener" class="btn btn-t">View LinkedIn →</a>
+    <a href="https://github.com/heemaniar" target="_blank" rel="noopener" class="btn btn-g">GitHub</a>
+  </div>
+
+  <div class="contact-divider"></div>
+
+  <div class="socials fu fd2">
+    <a href="https://www.linkedin.com/in/heema-maniar" target="_blank" rel="noopener" class="soc-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      linkedin.com/in/heema-maniar
+    </a>
+    <a href="https://github.com/heemaniar" target="_blank" rel="noopener" class="soc-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      github.com/heemaniar
+    </a>
+    <a href="mailto:maniarheema@gmail.com" class="soc-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      maniarheema@gmail.com
+    </a>
+  </div>
+
+  <p class="footer-copy fu">© 2026 Heema Maniar &nbsp;·&nbsp; Analytics Engineer &amp; Strategic Data Analyst &nbsp;·&nbsp; San Francisco Bay Area</p>
+</section>
+
+<!-- ────────────────── JS ────────────────── -->
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Scroll-in animations
+  const els = document.querySelectorAll('.fu');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(el => io.observe(el));
+
+  // Hero fires immediately
+  document.querySelectorAll('#hero .fu').forEach(el => el.classList.add('in'));
+</script>
+</body>
+</html>
